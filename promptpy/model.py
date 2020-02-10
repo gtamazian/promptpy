@@ -537,6 +537,22 @@ class Transformation(object):
 
         return obj_func
 
+    def interpolate_conformation(self, conf_num):
+        """
+        Replace a conformation with the specified number with an
+        interpolated one.
+        """
+        m = self.n_conf()
+        assert 0 < conf_num < (m-1), "incorrect conformation number"
+
+        int_alpha = geo.circ_interp(self.alpha[conf_num - 1, ],
+                                    self.alpha[conf_num + 1, ], 1)
+        int_gamma = geo.circ_interp(self.gamma[conf_num - 1, ],
+                                    self.gamma[conf_num + 1, ], 1)
+
+        self.alpha[conf_num, ] = int_alpha[:, 1]
+        self.gamma[conf_num, ] = int_gamma[:, 1]
+
 
 def read_hdf5(fname):
     """

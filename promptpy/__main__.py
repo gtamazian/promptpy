@@ -10,6 +10,7 @@ from .commands import angleindices
 from .commands import convert
 from .commands import info
 from .commands import interpolate
+from .commands import interpolateconformation
 from .commands import optimize
 from .commands import plotangles
 from .commands import plotstats
@@ -50,6 +51,9 @@ def cli():
                                                'pair of PDB files by '
                                                'interpolating in internal '
                                                'coordinates')
+    parser_interpolateconformation = subparsers.add_parser(
+        'interpolateconformation',
+        help='interpolate a conformation within the a transformation')
     parser_info = subparsers.add_parser(
         'info',
         help='print information about JSON transformation files')
@@ -76,6 +80,7 @@ def cli():
     convert.create_parser(parser_convert)
     info.create_parser(parser_info)
     interpolate.create_parser(parser_interpolate)
+    interpolateconformation.create_parser(parser_interpolateconformation)
     strip.create_parser(parser_strip)
     optimize.create_parser(parser_optimize)
     plotangles.create_parser(parser_plotangles)
@@ -90,6 +95,7 @@ def cli():
         'convert': convert.launcher,
         'info': info.launcher,
         'interpolate': interpolate.launcher,
+        'interpolateconformation': interpolateconformation.launcher,
         'optimize': optimize.launcher,
         'plotangles': plotangles.launcher,
         'plotstats': plotstats.launcher,
