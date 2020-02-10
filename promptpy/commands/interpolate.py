@@ -16,7 +16,7 @@ from Bio.PDB.PDBParser import PDBParser
 from .. import model
 from .. import pdb
 
-assert sys.version_info >= (3, 6), 'Python 3.6 or higher required'
+assert sys.version_info >= (3, 5), 'Python 3.5 or higher required'
 
 
 def create_parser(parser):

@@ -19,7 +19,7 @@ from .commands import updaterotations
 from .commands import varinterp
 from . import __version__
 
-assert sys.version_info >= (3, 6), 'Python 3.6 or higher required'
+assert sys.version_info >= (3, 5), 'Python 3.5 or higher required'
 
 
 def cli():
