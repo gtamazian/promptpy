@@ -14,6 +14,7 @@ from .commands import interpolateconformation
 from .commands import optimize
 from .commands import plotangles
 from .commands import plotstats
+from .commands import printangles
 from .commands import refinterp
 from .commands import strip
 from .commands import updaterotations
@@ -67,6 +68,9 @@ def cli():
     parser_plotstats = subparsers.add_parser(
         'plotstats',
         help='plot statistics for JSON transformation files')
+    parser_printangles = subparsers.add_parser(
+        'printangles',
+        help='print angles from a transformation file')
     parser_refinterp = subparsers.add_parser(
         'refinterp',
         help='interpolate angles using a transformation as a reference')
@@ -85,6 +89,7 @@ def cli():
     optimize.create_parser(parser_optimize)
     plotangles.create_parser(parser_plotangles)
     plotstats.create_parser(parser_plotstats)
+    printangles.create_parser(parser_printangles)
     updaterotations.create_parser(parser_updaterotations)
     varinterp.create_parser(parser_varinterp)
     refinterp.creaser_parser(parser_refinterp)
@@ -99,6 +104,7 @@ def cli():
         'optimize': optimize.launcher,
         'plotangles': plotangles.launcher,
         'plotstats': plotstats.launcher,
+        'printangles': printangles.launcher,
         'refinterp': refinterp.launcher,
         'strip': strip.launcher,
         'updaterotations': updaterotations.launcher,
